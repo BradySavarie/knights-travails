@@ -12,17 +12,16 @@ function knightMoves(start, end) {
         Array.from({ length: boardSize }, () => null)
     );
 
-    // Reject input coordinates not on chessboard
-    if (
-        startRow < 0 ||
-        startRow > 7 ||
-        startCol < 0 ||
-        startCol > 7 ||
-        endRow < 0 ||
-        endRow > 7 ||
-        endCol < 0 ||
-        endCol > 7
-    ) {
+    // Reject bad coordinates
+
+    const lessThanBoardsize = [startRow, startCol, endRow, endCol].some(
+        (num) => num < 0
+    );
+    const greaterThanBoardsize = [startRow, startCol, endRow, endCol].some(
+        (num) => num > 7
+    );
+
+    if (lessThanBoardsize || greaterThanBoardsize) {
         return 'Bad coordinates';
     }
 

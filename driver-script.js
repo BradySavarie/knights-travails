@@ -1,8 +1,8 @@
 const knightMoves = require('./knights-travails');
 
-// Input any coordinates into the knightMoves function
+// Input any start and end coordinates into the knightMoves function
 
-let path = knightMoves([5, 0], [5, 3]);
+let path = knightMoves([0, 0], [0, 0]);
 
 // Driver script below prints output to console
 
