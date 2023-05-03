@@ -14,18 +14,14 @@ function knightMoves(start, end) {
 
     // Reject bad coordinates
 
-    const lessThanBoardsize = [startRow, startCol, endRow, endCol].some(
-        (num) => num < 0
-    );
-    const greaterThanBoardsize = [startRow, startCol, endRow, endCol].some(
-        (num) => num > 7
+    const badCoordinates = [startRow, startCol, endRow, endCol].some(
+        (num) => num < 0 || num > 7
     );
 
-    if (lessThanBoardsize || greaterThanBoardsize) {
+    if (badCoordinates) {
         return 'Bad coordinates';
     }
 
-    //
     while (queue.length > 0) {
         // Remove and select coordinates from start of queue, update visited array
         const [currentRow, currentCol] = queue.shift();
